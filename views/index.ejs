@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA 画像</title>
+</head>
+<body>
+    <h1><%= imageData.date %></h1>
+
+    <form action="/" method="get">
+        <label for="date">Select a date:</label>
+        <input type="date" id="date" name="date">
+        <button type="submit">Get Image</button>
+    </form>
+
+    <% if (imageData) { %>
+        <h2><%= imageData.title %></h2>
+        <img src="<%= imageData.url %>" alt="<%= imageData.title %>" style="max-width: 100%; height: auto;">
+        <p><%= imageData.explanation %></p>
+    <% } else { %>
+        <p>その日付の画像はありません</p>
+    <% } %>
+</body>
+</html>
